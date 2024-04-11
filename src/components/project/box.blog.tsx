@@ -13,7 +13,7 @@ const BoxBlog = (props: IProps) => {
 
   return (
     <div
-      className="rounded-xl shadow-lg cursor-pointer border-black border hover:bg-black hover:text-white transition-all overflow-hidden"
+      className="rounded-xl shadow-lg cursor-pointer border-white border hover:bg-black hover:text-white transition-all overflow-hidden"
     >
 
       {/* Image */}
