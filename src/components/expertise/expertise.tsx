@@ -1,10 +1,12 @@
-import { sequel, sourceSerif } from '@/data/font';
+import { sequel } from '@/data/font';
 import Title from '../title/title';
 import {
   masterOfCeremoniesList,
   voiceTalentList,
   stylingList
 } from '@/data/expertise';
+import SubTitle from '../title/subTitle';
+import Description from '../title/description';
 
 const Expertise = () => {
 
@@ -19,14 +21,10 @@ const Expertise = () => {
         <div className='grid grid-cols-1 lg:grid-cols-3 gap-y-12 gap-x-40'>
           {/* Column 1 */}
           <div>
-            <h2
-              className={`text-[1.5rem] md:text-[2rem] lg:text-[2.5rem] font-extrabold ${sequel.className} mb-6 leading-none text-black`}
-            >
-              MASTER of CEREMONIES
-            </h2>
-            <p className={`text-base md:text-xl ${sourceSerif.className} mb-14 text-black`}>
-              Master of Ceremonies is the host or hostess who is in charge of proceedings and keeping a ceremony, event or meeting flowing smoothly. The MC formally opens the event, introduces speakers and performers, and engages the audience throughout the program.
-            </p>
+            <SubTitle title='MASTER of CEREMONIES' />
+            <Description
+              content="Master of Ceremonies is the host or hostess who is in charge of proceedings and keeping a ceremony, event or meeting flowing smoothly. The MC formally opens the event, introduces speakers and performers, and engages the audience throughout the program."
+            />
             <ul>
               {
                 masterOfCeremoniesList.map(item => (
@@ -43,14 +41,10 @@ const Expertise = () => {
 
           {/* Column 2 */}
           <div>
-            <h2
-              className={`text-[1.5rem] md:text-[2rem] lg:text-[2.5rem] font-extrabold ${sequel.className} mb-6 leading-none text-black`}
-            >
-              VOICE TALENT
-            </h2>
-            <p className={`text-base md:text-xl ${sourceSerif.className} mb-14 text-black`}>
-              A Voice Talent is a person who uses their voice professionally to bring characters and content to life. A voice talent is a gifted professional who uses their unique voice and performance skills to bring heart and resonance to all kinds of media productions in a compelling way.
-            </p>
+            <SubTitle title='VOICE TALENT' isUpperCase />
+            <Description
+              content="A Voice Talent is a person who uses their voice professionally to bring characters and content to life. A voice talent is a gifted professional who uses their unique voice and performance skills to bring heart and resonance to all kinds of media productions in a compelling way."
+            />
             <ul>
               {
                 voiceTalentList.map(item => (
@@ -67,14 +61,10 @@ const Expertise = () => {
 
           {/* Column 3 */}
           <div>
-            <h2
-              className={`text-[1.5rem] md:text-[2rem] lg:text-[2.5rem] font-extrabold ${sequel.className} mb-6 leading-none text-black`}
-            >
-              STYLING
-            </h2>
-            <p className={`text-base md:text-xl ${sourceSerif.className} mb-14 text-black`}>
-              A Stylist is a creative professional who helps individuals and productions showcase their desired image and style. The role of a Stylist requires exceptional taste, vision, industry knowledge and interpersonal skills. Skilled stylists can amplify their client's inner confidence and outer glamour.
-            </p>
+            <SubTitle title='STYLING' isUpperCase />
+            <Description
+              content="A Stylist is a creative professional who helps individuals and productions showcase their desired image and style. The role of a Stylist requires exceptional taste, vision, industry knowledge and interpersonal skills. Skilled stylists can amplify their client' s inner confidence and outer glamour."
+            />
             <ul>
               {
                 stylingList.map(item => (
