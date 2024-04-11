@@ -1,0 +1,27 @@
+.facebook {
+  color: white;
+}
+.facebook:hover {
+  color: blue;
+}
+
+.instagram {
+  color: white;
+}
+.instagram:hover {
+  color: pink;
+}
+
+.gmail {
+  color: white;
+}
+.gmail:hover {
+  color: red;
+}
+
+.tiktok {
+  color: white;
+}
+.tiktok:hover {
+  color: purple;
+}

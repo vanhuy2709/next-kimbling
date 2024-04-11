@@ -1,0 +1,9 @@
+#header__logo--img:hover + #header__logo--title {
+  opacity: 1;
+  transform: translateX(0);
+}
+#header__logo--title {
+  opacity: 0;
+  transform  : translateX(30px);
+  transition : all 0.3s ease;
+}

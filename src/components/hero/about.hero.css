@@ -1,0 +1,23 @@
+.line {
+  opacity: 0;
+  animation: animationLine 2s forwards;
+}
+.line:nth-of-type(1) {
+  animation-delay: 0s;
+}
+.line:nth-of-type(2) {
+  animation-delay: 0.3s;
+}
+.line:nth-of-type(3) {
+  animation-delay: 0.6s;
+}
+
+@keyframes animationLine {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
