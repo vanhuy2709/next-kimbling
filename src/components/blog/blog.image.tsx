@@ -8,7 +8,7 @@ const BlogImage = () => {
         alt=""
         fill
         sizes="100%"
-        priority={true}
+        priority
         style={{ objectFit: 'cover' }} />
     </div>
   );

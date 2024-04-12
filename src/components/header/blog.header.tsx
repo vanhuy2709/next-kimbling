@@ -15,6 +15,7 @@ const BlogHeader = () => {
           src={'/user/user-logo.jpg'}
           alt=""
           fill
+          priority
           sizes="100%"
           style={{ objectFit: 'cover' }}
         />
