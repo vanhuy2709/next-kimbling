@@ -5,11 +5,40 @@ import BlogVideo from "@/components/blog/blog.video";
 import BlogImage from "@/components/blog/blog.image";
 import AppFooter from "@/components/footer/app.footer";
 import { sendRequest } from "@/utils/api";
+import type { Metadata, ResolvingMetadata } from 'next';
+
+type Props = {
+  params: { idBlog: string }
+  searchParams: { [key: string]: string | string[] | undefined }
+}
+
+export async function generateMetadata(
+  { params, searchParams }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  // read route params
+  const temp = params?.idBlog?.split('.html') ?? [];
+  const temp1 = temp[0]?.split('-') ?? [];
+  const blogId = temp1[temp1.length - 1]
+
+  // fetch data
+  const res = await sendRequest<IBackendRes<IBlog>>({
+    method: 'get',
+    url: `https://kimtuyen.blog/api/v1/blog/${blogId}`
+  })
+
+  return {
+    // @ts-ignore
+    title: res.data?.title,
+    // @ts-ignore
+    description: res.data?.description
+  }
+}
 
 const DetailBlogPage = async ({ params }: { params: { idBlog: string } }) => {
 
-  const temp = params.idBlog.split('.html');
-  const temp1 = temp[0].split('-');
+  const temp = params?.idBlog?.split('.html') ?? [];
+  const temp1 = temp[0]?.split('-') ?? [];
   const blogId = temp1[temp1.length - 1]
 
   // Fetch API Blog by ID

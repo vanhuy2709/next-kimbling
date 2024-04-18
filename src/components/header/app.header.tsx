@@ -3,13 +3,14 @@ import Link from "next/link";
 import Image from "next/image";
 import { menu } from "@/data/menu";
 import './app.header.css';
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 // Import font
 import { tungSten, sourceSerif } from "@/data/font";
 
 const AppHeader = () => {
   const pathname = usePathname();
+  const router = useRouter();
 
   return (
     <header className="flex items-center justify-between pt-4 px-4 lg:p-8 fixed top-0 w-full">
@@ -23,6 +24,7 @@ const AppHeader = () => {
           priority
           className="cursor-pointer w-10 h-10 object-contain"
           id="header__logo--img"
+          onClick={() => router.push('/')}
         />
         <h4
           className={`${sourceSerif.className} text-2xl`}

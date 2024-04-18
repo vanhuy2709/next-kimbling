@@ -12,7 +12,8 @@ const ProjectPage = async () => {
   return (
     <div className="max-w-screen-2xl mx-auto px-8 py-[18rem] md:py-[20rem]">
       {
-        listRole?.data?.result.map((item, index) => (
+        // @ts-ignore
+        listRole?.data?.result.map((item: IRole, index: number) => (
           <BoxRole
             key={item._id}
             role={item}
