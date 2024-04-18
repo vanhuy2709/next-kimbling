@@ -4,16 +4,30 @@ import BlogDesc from "@/components/blog/blog.desc";
 import BlogVideo from "@/components/blog/blog.video";
 import BlogImage from "@/components/blog/blog.image";
 import AppFooter from "@/components/footer/app.footer";
+import { sendRequest } from "@/utils/api";
 
-const DetailBlogPage = () => {
+const DetailBlogPage = async ({ params }: { params: { idBlog: string } }) => {
+
+  const temp = params.idBlog.split('.html');
+  const temp1 = temp[0].split('-');
+  const blogId = temp1[temp1.length - 1]
+
+  // Fetch API Blog by ID
+  const res = await sendRequest<IBackendRes<IBlog>>({
+    method: 'get',
+    url: `https://kimtuyen.blog/api/v1/blog/${blogId}`
+  })
+
 
   return (
     <div className="bg-black lg:px-8 xl:px-60">
       <BlogCover />
 
-      <BlogTitle />
+      {/* @ts-ignore */}
+      <BlogTitle title={res.data?.title} color={res.data?.color} />
 
-      <BlogDesc />
+      {/* @ts-ignore */}
+      <BlogDesc description={res.data.description} />
 
       {/* Video Youtube */}
       <BlogVideo />

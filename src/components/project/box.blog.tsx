@@ -3,9 +3,10 @@ import Link from "next/link";
 import { faMinus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { sourceSerif, ridleyGroteskDemo } from "@/data/font";
+import { convertSlugUrl } from "@/utils/api";
 
 interface IProps {
-  blog: IBlogByRole
+  blog: IBlog
 }
 
 const BoxBlog = (props: IProps) => {
@@ -16,7 +17,7 @@ const BoxBlog = (props: IProps) => {
     <div
       className="rounded-xl shadow-lg cursor-pointer border-white border hover:bg-black hover:text-white transition-all overflow-hidden"
     >
-      <Link href={`/blog/123`}>
+      <Link href={`/blog/${convertSlugUrl(blog.title)}-${blog._id}.html`}>
         {/* Image */}
         <div className="h-64 w-full relative overflow-hidden">
           <Image

@@ -1,6 +1,5 @@
 import Image from "next/image";
 
-
 const BlogCover = () => {
   return (
     <div className="w-full h-[350px] md:h-[500px] xl:h-screen relative">

@@ -18,9 +18,8 @@ const AppHeader = () => {
         <Image
           src={'/user/user-logo.jpg'}
           alt=""
-          width="0"
-          height="0"
-          sizes="100vw"
+          width="40"
+          height="40"
           priority
           className="cursor-pointer w-10 h-10 object-contain"
           id="header__logo--img"

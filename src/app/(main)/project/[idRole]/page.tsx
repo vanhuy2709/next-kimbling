@@ -3,9 +3,13 @@ import { sendRequest } from "@/utils/api";
 
 const BlogPage = async ({ params }: { params: { idRole: string } }) => {
 
+  const temp = params?.idRole?.split('.html') ?? [];
+  const temp1 = temp[0]?.split('-');
+  const roleId = temp1[temp1.length - 1];
+
   // Fetch Data Roles
-  const listBlogByRole = await sendRequest<IBackendRes<IBlogByRole[]>>({
-    url: `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/blog/find/?value=${params.idRole}`,
+  const listBlogByRole = await sendRequest<IBackendRes<IBlog>>({
+    url: `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/blog/find/?value=${roleId}`,
     method: 'GET',
   })
 
@@ -16,12 +20,15 @@ const BlogPage = async ({ params }: { params: { idRole: string } }) => {
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
       >
         {
-          listBlogByRole.data?.map(item => (
-            <BoxBlog
-              key={item._id}
-              blog={item}
-            />
-          ))
+          listBlogByRole.data instanceof Array ?
+            listBlogByRole.data?.map(item => (
+              <BoxBlog
+                key={item._id}
+                blog={item}
+              />
+            ))
+            :
+            (<></>)
         }
       </div>
     </div>

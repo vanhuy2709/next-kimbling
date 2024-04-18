@@ -1,6 +1,10 @@
 import { ridleyGroteskDemo } from '@/data/font';
 
-const BlogDesc = () => {
+interface IProps {
+  description: string;
+}
+const BlogDesc = (props: IProps) => {
+  const { description } = props;
   return (
     <p
       className={`${ridleyGroteskDemo.className}`}
@@ -11,7 +15,7 @@ const BlogDesc = () => {
         textAlign: 'center'
       }}
     >
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores facilis dolorem dolores sunt eum magni minima! Accusantium animi, nobis, mollitia veniam aut nihil et natus voluptates officia, molestiae nam voluptatibus?
+      {description}
     </p>
   );
 };

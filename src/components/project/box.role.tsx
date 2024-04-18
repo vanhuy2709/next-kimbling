@@ -5,6 +5,7 @@ import { tungSten } from "@/data/font";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
+import { convertSlugUrl } from "@/utils/api";
 
 interface IProps {
   isReverse?: boolean,
@@ -26,7 +27,7 @@ const BoxRole = (props: IProps) => {
         <SubTitle title={role.nameRole} isUpperCase />
         <Description content={role.description} />
         <Link
-          href={`/project/${role._id}`}
+          href={`/project/${convertSlugUrl(role.nameRole)}-${role._id}.html`}
           className={`text-xl font-normal tracking-[0.2rem] text-[#fecd1a] ${tungSten.className}`}
         >
           <FontAwesomeIcon icon={faArrowRight} className="mr-4" />

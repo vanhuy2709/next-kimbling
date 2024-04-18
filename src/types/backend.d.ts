@@ -3,34 +3,31 @@ export { };
 
 declare global {
 
-  interface IRole {
-    meta: {
-      current: number,
-      pageSize: number,
-      pages: number,
-      total: number
-    },
-    result: [
-      {
-        _id: string,
-        nameRole: string,
-        description: string,
-        thumb: string
-      }
-    ]
+  interface IMeta {
+    current: number;
+    pageSize: number;
+    pages: number;
+    total: number;
   }
 
-  interface IBlogByRole {
-    _id: string,
-    title: string,
-    description: string,
-    idRole: string,
-    color: string,
-    video: string[],
-    photo: string[],
-    thumb: string,
-    createdAt: string,
-    updatedAt: string,
+  interface IBlog {
+    _id: string;
+    title: string;
+    description: string;
+    idRole: string;
+    color: string;
+    video: string[]
+    photo: string[];
+    thumb: string;
+    createdAt: string;
+    updatedAt: string;
+  }
+
+  interface IRole {
+    _id: string;
+    nameRole: string;
+    description: string;
+    thumb: string;
   }
 
   interface IRequest {
@@ -47,7 +44,10 @@ declare global {
     error?: string | string[];
     message: string;
     statusCode: number | string;
-    data?: T;
+    data?: {
+      meta: IMeta;
+      result: T[];
+    } | T[];
   }
 
 }
