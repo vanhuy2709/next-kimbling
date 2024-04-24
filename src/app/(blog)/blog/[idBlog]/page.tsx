@@ -22,15 +22,13 @@ export async function generateMetadata(
   const blogId = temp1[temp1.length - 1]
 
   // fetch data
-  const res = await sendRequest<IBackendRes<IBlog>>({
-    method: 'get',
-    url: `https://kimtuyen.blog/api/v1/blog/${blogId}`
+  const res = await sendRequest<IBackendResBlog<IBlog>>({
+    method: 'GET',
+    url: `http://localhost:8000/api/v1/blog/${blogId}`
   })
 
   return {
-    // @ts-ignore
     title: res.data?.title,
-    // @ts-ignore
     description: res.data?.description
   }
 }
@@ -42,15 +40,14 @@ const DetailBlogPage = async ({ params }: { params: { idBlog: string } }) => {
   const blogId = temp1[temp1.length - 1]
 
   // Fetch API Blog by ID
-  const res = await sendRequest<IBackendRes<IBlog>>({
+  const res = await sendRequest<IBackendResBlog<IBlog>>({
     method: 'get',
     url: `https://kimtuyen.blog/api/v1/blog/${blogId}`
   })
 
-
   return (
     <div className="bg-black lg:px-8 xl:px-60">
-      <BlogCover />
+      <BlogCover thumb={res.data?.thumb} />
 
       {/* @ts-ignore */}
       <BlogTitle title={res.data?.title} color={res.data?.color} />
@@ -59,11 +56,15 @@ const DetailBlogPage = async ({ params }: { params: { idBlog: string } }) => {
       <BlogDesc description={res.data.description} />
 
       {/* Video Youtube */}
-      <BlogVideo />
+      {res.data?.video.map(item => (
+        <BlogVideo key={item} video={item} />
+      ))}
 
       {/* List Image */}
       <div className="flex flex-col gap-8">
-        <BlogImage />
+        {res.data?.photo.map(item => (
+          <BlogImage key={item} photo={item} />
+        ))}
       </div>
 
       <AppFooter />

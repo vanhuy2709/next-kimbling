@@ -41,6 +41,7 @@ const BlogPage = async ({ params }: { params: { idRole: string } }) => {
   const listBlogByRole = await sendRequest<IBackendRes<IBlog>>({
     url: `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/blog/find/?value=${roleId}`,
     method: 'GET',
+    nextOption: { cache: 'no-store' }
   })
 
   return (

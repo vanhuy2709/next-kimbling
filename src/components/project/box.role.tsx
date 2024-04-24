@@ -9,19 +9,14 @@ import { convertSlugUrl } from "@/utils/api";
 
 interface IProps {
   isReverse?: boolean,
-  role: {
-    _id: string,
-    nameRole: string,
-    description: string,
-    thumb: string,
-  }
+  role: IRole
 }
 
 const BoxRole = (props: IProps) => {
   const { isReverse, role } = props;
 
   return (
-    <div className={`flex flex-col items-center justify-between gap-8 mb-40 ${isReverse ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}>
+    <div className={`flex flex-col items-baseline lg:items-center justify-between gap-8 mb-40 ${isReverse ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}>
       {/* Left */}
       <div className="flex-1">
         <SubTitle title={role.nameRole} isUpperCase />
@@ -36,17 +31,15 @@ const BoxRole = (props: IProps) => {
       </div>
 
       {/* Right */}
-      {/* relative border-black flex-1 rounded-3xl overflow-hidden border-[0.5rem] */}
       <div
         className="w-full h-80 md:h-96 lg:w-[40rem] lg:h-[30rem] relative overflow-hidden border-[0.3rem] border-black rounded-3xl"
       >
         <Image
-          src='/user/user-logo.jpg'
-          alt=""
+          src={`http://localhost:8000/images/${role.thumb}`}
+          alt="logo-project"
           fill
-          priority
           sizes="100%"
-          style={{ objectFit: 'cover' }}
+          style={{ objectFit: 'contain' }}
         />
       </div>
     </div>

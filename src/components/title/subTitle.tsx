@@ -9,7 +9,7 @@ const SubTitle = (props: IProps) => {
 
   return (
     <h2
-      className={`text-[1.5rem] md:text-[2rem] lg:text-[2.5rem] font-extrabold ${sequel.className} mb-6 leading-none text-black ${format ? 'uppercase' : ''}`}
+      className={`text-[1.5rem] md:text-[1.8rem] lg:text-[2rem] font-extrabold ${sequel.className} mb-6 leading-none text-black ${format ? 'uppercase' : ''}`}
     >
       {title}
     </h2>

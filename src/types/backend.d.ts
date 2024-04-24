@@ -10,6 +10,12 @@ declare global {
     total: number;
   }
 
+  interface IBrand {
+    _id: string;
+    title: string;
+    urlImage: string;
+  }
+
   interface IBlog {
     _id: string;
     title: string;
@@ -21,6 +27,7 @@ declare global {
     thumb: string;
     createdAt: string;
     updatedAt: string;
+    isFeatured: boolean;
   }
 
   interface IRole {
@@ -47,7 +54,14 @@ declare global {
     data?: {
       meta: IMeta;
       result: T[];
-    } | T[];
+    };
+  }
+
+  interface IBackendResBlog<T> {
+    error?: string | string[];
+    message: string;
+    statusCode: number | string;
+    data?: T
   }
 
 }

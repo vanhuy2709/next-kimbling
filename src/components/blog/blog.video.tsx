@@ -1,5 +1,11 @@
 
-const BlogVideo = () => {
+interface IProps {
+  video: string | undefined;
+}
+
+const BlogVideo = (props: IProps) => {
+
+  const { video } = props;
 
   return (
     <div style={{
@@ -10,7 +16,7 @@ const BlogVideo = () => {
       textAlign: 'center'
     }}>
       <iframe
-        src={`https://www.youtube.com/embed/xypzmu5mMPY`}
+        src={`https://www.youtube.com/embed/${video}`}
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowFullScreen
         style={{
