@@ -1,6 +1,7 @@
 import { faFacebook, faInstagram, faTiktok } from '@fortawesome/free-brands-svg-icons';
+import { faPhone } from '@fortawesome/free-solid-svg-icons/faPhone';
+import { faPhoneVolume } from '@fortawesome/free-solid-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
-
 
 interface IMenu {
   id: number,
@@ -12,6 +13,8 @@ interface ISocial {
   name: string,
   icon: any,
   color: string,
+  desc: string;
+  path: string;
 }
 
 export const menu: IMenu[] = [
@@ -38,27 +41,39 @@ export const social: ISocial[] = [
     name: 'facebook',
     icon: faFacebook,
     color: '#0000FF',
-    // color: 'blue',
+    desc: 'Facebook',
+    path: 'https://www.facebook.com/kimtuyenyooo'
   },
   {
     id: 2,
     name: 'instagram',
     icon: faInstagram,
     color: '#FFC0CB',
-    // color: 'pink',
+    desc: 'Instagram',
+    path: 'https://www.instagram.com/kim.blingg',
   },
   {
     id: 3,
-    name: 'gmail',
-    icon: faEnvelope,
-    color: '#FF0000',
-    // color: 'red',
-  },
-  {
-    id: 4,
     name: 'tiktok',
     icon: faTiktok,
     color: '#800080',
-    // color: 'purple',
+    desc: 'Tiktok',
+    path: 'https://www.tiktok.com/@kimtuyenkimblingg'
+  },
+  {
+    id: 4,
+    name: 'gmail',
+    icon: faEnvelope,
+    color: '#FF0000',
+    desc: 'kimtuyennguyenthi.vn@gmail.com',
+    path: 'mailto:kimtuyennguyenthi.vn@gmail.com',
+  },
+  {
+    id: 5,
+    name: 'phone',
+    icon: faPhone,
+    color: 'red',
+    desc: '(+84) 962 419 949',
+    path: 'https://www.facebook.com/kimtuyenyooo'
   },
 ]

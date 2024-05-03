@@ -25,7 +25,7 @@ const BoxBlog = (props: IProps) => {
             alt="thumb-blog"
             fill
             sizes="100%"
-            style={{ objectFit: 'cover' }}
+            style={{ objectFit: 'contain' }}
           />
         </div>
 

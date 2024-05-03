@@ -5,32 +5,16 @@ import BoxBrand from "./box.brand";
 const Brand = () => {
 
   const [listBlog, setListBlog] = useState<IBlog[]>([]);
-  const [meta, setMeta] = useState({
-    current: 1,
-    pageSize: 50,
-    pages: 0,
-    total: 0
-  });
 
   // Get Data Blog
   const getDataBlog = async () => {
-    const res = await sendRequest<IBackendRes<IBlog>>({
+    const res = await sendRequest<IBackendResBlog<IBlog[]>>({
       method: 'get',
-      url: `http://localhost:8000/api/v1/blog`,
-      queryParams: {
-        current: meta.current,
-        pageSize: meta.pageSize,
-      }
+      url: `http://localhost:8000/api/v1/blog/find-all`,
     })
 
     if (res.data) {
-      setListBlog(res.data?.result);
-      setMeta({
-        current: res.data?.meta.current!,
-        pageSize: res.data?.meta.pageSize!,
-        pages: res.data?.meta.pages,
-        total: res.data?.meta.total,
-      })
+      setListBlog(res.data);
     }
   }
 
@@ -46,15 +30,10 @@ const Brand = () => {
       <div
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"
       >
-
         {
-          listBlog.map(item => {
-            if (item.isFeatured) {
-              return (
-                <BoxBrand />
-              )
-            }
-          })
+          listBlog.map(item =>
+            (<BoxBrand key={item._id} blog={item} />)
+          )
         }
       </div>
     </div>

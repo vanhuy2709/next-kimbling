@@ -16,7 +16,7 @@ const BlogImage = (props: IProps) => {
         fill
         sizes="100%"
         priority
-        style={{ objectFit: 'cover' }} />
+        style={{ objectFit: 'contain' }} />
     </div>
   );
 };

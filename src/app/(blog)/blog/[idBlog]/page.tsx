@@ -42,7 +42,8 @@ const DetailBlogPage = async ({ params }: { params: { idBlog: string } }) => {
   // Fetch API Blog by ID
   const res = await sendRequest<IBackendResBlog<IBlog>>({
     method: 'get',
-    url: `https://kimtuyen.blog/api/v1/blog/${blogId}`
+    url: `https://kimtuyen.blog/api/v1/blog/${blogId}`,
+    nextOption: { cache: 'no-store' }
   })
 
   return (

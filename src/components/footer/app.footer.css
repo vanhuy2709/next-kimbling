@@ -25,3 +25,10 @@
 .tiktok:hover {
   color: purple;
 }
+
+.phone {
+  color: white;
+}
+.phone:hover {
+  color: red;
+}

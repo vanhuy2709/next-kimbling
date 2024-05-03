@@ -16,7 +16,7 @@ const BlogCover = (props: IProps) => {
         fill
         priority
         sizes="100%"
-        style={{ objectFit: "cover" }}
+        style={{ objectFit: "contain" }}
       />
     </div>
   );

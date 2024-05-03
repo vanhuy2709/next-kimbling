@@ -2,6 +2,8 @@
 import { social } from "@/data/menu";
 import { tungSten, sequel } from "@/data/font";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Link from "next/link";
+import { Tooltip } from 'antd';
 import './app.footer.css';
 
 const AppFooter = () => {
@@ -28,11 +30,16 @@ const AppFooter = () => {
             <div className="flex items-center gap-8 mb-10 md:mb-24">
               {
                 social.map(item => (
-                  <FontAwesomeIcon
-                    key={item.id}
-                    icon={item.icon}
-                    className={`cursor-pointer ${item.name} w-7 h-7 md:w-10 md:h-10`}
-                  />
+                  <Link key={item.id} href={item.path} target="_blank">
+                    <Tooltip
+                      title={item.desc}
+                    >
+                      <FontAwesomeIcon
+                        icon={item.icon}
+                        className={`cursor-pointer ${item.name} w-7 h-7 md:w-10 md:h-10`}
+                      />
+                    </Tooltip>
+                  </Link>
                 ))
               }
             </div>
