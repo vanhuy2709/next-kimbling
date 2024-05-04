@@ -1,12 +1,9 @@
+'use client'
 import AppHeader from "@/components/header/app.header";
 import AppFooter from "@/components/footer/app.footer";
-import type { Metadata } from 'next';
 import Script from "next/script";
-
-export const metadata: Metadata = {
-  title: 'Kim Bling',
-  description: 'This is my blog - KimBling',
-}
+import { AnimatePresence } from 'framer-motion';
+import Template from "./template";
 
 const idJsonObject = {
   "@context": "https://schema.org",
@@ -28,13 +25,13 @@ const idJsonObject = {
 }
 
 export default function RootLayout(
-  { children, }: { children: React.ReactNode; }
+  { children }: { children: React.ReactNode; }
 ) {
 
   return (
     <>
       <AppHeader />
-      {children}
+      <Template>{children}</Template>
       <AppFooter />
       <Script
         type="application/ld+json"

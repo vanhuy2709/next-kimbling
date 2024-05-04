@@ -28,6 +28,7 @@ const HomePage = () => {
     backgroundColor: scrollPosition > 200 ? 'black' : 'white' // Change 100 to your desired scroll position
   };
 
+
   return (
     <div className="homepage" style={headerStyle}>
       <Hero />
