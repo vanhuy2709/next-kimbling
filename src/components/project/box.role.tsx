@@ -39,7 +39,7 @@ const BoxRole = (props: IProps) => {
           alt="logo-project"
           fill
           sizes="100%"
-          style={{ objectFit: 'contain' }}
+          style={{ objectFit: 'cover' }}
         />
       </div>
     </div>
