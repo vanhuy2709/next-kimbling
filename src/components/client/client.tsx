@@ -11,7 +11,7 @@ const Client = () => {
   const getDataBrand = async () => {
     const res = await sendRequest<IBackendRes<IBrand>>({
       method: 'GET',
-      url: 'http://localhost:8000/api/v1/brand'
+      url: 'https://kimtuyen.blog/api/v1/brand'
     })
 
     if (res?.data) {
@@ -34,7 +34,13 @@ const Client = () => {
         <div className="grid grid-cols-2 md:grid-cols-5 gap-20">
           {listBrand.map((brand: IBrand) => (
             <div key={brand._id} className="flex items-center justify-center">
-              <img src={`http://localhost:8000/images/${brand.urlImage}`} alt="logo-brand" className="object-contain w-40 h-40" />
+              <Image
+                src={`https://kimtuyen.blog/images/${brand.urlImage}`}
+                alt="logo-brand"
+                className="object-contain"
+                width={160}
+                height={160}
+              />
             </div>
           ))}
         </div>

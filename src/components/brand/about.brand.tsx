@@ -10,7 +10,7 @@ const Brand = () => {
   const getDataBlog = async () => {
     const res = await sendRequest<IBackendResBlog<IBlog[]>>({
       method: 'get',
-      url: `http://localhost:8000/api/v1/blog/find-all`,
+      url: `https://kimtuyen.blog/api/v1/blog/find-all`,
     })
 
     if (res.data) {

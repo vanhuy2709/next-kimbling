@@ -16,7 +16,7 @@ const BoxBrand = (props: IProps) => {
           className="bg-[#1A1A1A] flex items-center justify-center cursor-pointer h-[20rem] md:h-[21rem] xl:h-[28rem]"
         >
           <Image
-            src={`http://localhost:8000/images/${blog.thumb}`}
+            src={`https://kimtuyen.blog/images/${blog.thumb}`}
             alt="blog-thumb"
             width={200}
             height={200} />

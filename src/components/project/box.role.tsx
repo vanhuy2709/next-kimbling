@@ -35,7 +35,7 @@ const BoxRole = (props: IProps) => {
         className="w-full h-80 md:h-96 lg:w-[40rem] lg:h-[30rem] relative overflow-hidden border-[0.3rem] border-black rounded-3xl"
       >
         <Image
-          src={`http://localhost:8000/images/${role.thumb}`}
+          src={`https://kimtuyen.blog/images/${role.thumb}`}
           alt="logo-project"
           fill
           sizes="100%"

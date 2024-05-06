@@ -21,7 +21,7 @@ const BoxBlog = (props: IProps) => {
         {/* Image */}
         <div className="h-64 w-full relative overflow-hidden">
           <Image
-            src={`http://localhost:8000/images/${blog.thumb}`}
+            src={`https://kimtuyen.blog/images/${blog.thumb}`}
             alt="thumb-blog"
             fill
             sizes="100%"

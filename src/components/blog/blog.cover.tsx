@@ -11,7 +11,7 @@ const BlogCover = (props: IProps) => {
   return (
     <div className="w-full h-[350px] md:h-[500px] xl:h-screen relative">
       <Image
-        src={`http://localhost:8000/images/${thumb}`}
+        src={`https://kimtuyen.blog/images/${thumb}`}
         alt=""
         fill
         priority

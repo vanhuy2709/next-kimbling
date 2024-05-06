@@ -24,7 +24,7 @@ export async function generateMetadata(
   // fetch data
   const res = await sendRequest<IBackendResBlog<IBlog>>({
     method: 'GET',
-    url: `http://localhost:8000/api/v1/blog/${blogId}`
+    url: `https://kimtuyen.blog/api/v1/blog/${blogId}`
   })
 
   return {

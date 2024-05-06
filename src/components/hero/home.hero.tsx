@@ -16,7 +16,7 @@ const Hero = () => {
           >
             HELLO
             <br />
-            I'M KIM BLING.
+            I&apos;M KIM BLING.
             <br />
             Master of Ceremony.
           </h2>
