@@ -24,7 +24,7 @@ export async function generateMetadata(
   // fetch data
   const res = await sendRequest<IBackendResBlog<IBlog>>({
     method: 'GET',
-    url: `https://kimtuyen.blog/api/v1/blog/${blogId}`
+    url: `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/blog/${blogId}`
   })
 
   return {
@@ -42,7 +42,7 @@ const DetailBlogPage = async ({ params }: { params: { idBlog: string } }) => {
   // Fetch API Blog by ID
   const res = await sendRequest<IBackendResBlog<IBlog>>({
     method: 'get',
-    url: `https://kimtuyen.blog/api/v1/blog/${blogId}`,
+    url: `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/blog/${blogId}`,
     nextOption: { cache: 'no-store' }
   })
 

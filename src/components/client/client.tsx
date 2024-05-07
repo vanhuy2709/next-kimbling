@@ -6,12 +6,22 @@ import Image from "next/image";
 
 const Client = () => {
   const [listBrand, setListBrand] = useState<IBrand[]>([]);
+  const [meta, setMeta] = useState<IMeta>({
+    current: 1,
+    pageSize: 50,
+    pages: 0,
+    total: 0
+  })
 
   // Get Data Brand
   const getDataBrand = async () => {
     const res = await sendRequest<IBackendRes<IBrand>>({
       method: 'GET',
-      url: 'https://kimtuyen.blog/api/v1/brand'
+      url: `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/brand`,
+      queryParams: {
+        current: meta.current,
+        pageSize: meta.pageSize
+      }
     })
 
     if (res?.data) {
@@ -35,7 +45,7 @@ const Client = () => {
           {listBrand.map((brand: IBrand) => (
             <div key={brand._id} className="flex items-center justify-center">
               <Image
-                src={`https://kimtuyen.blog/images/${brand.urlImage}`}
+                src={`${process.env.NEXT_PUBLIC_BACKEND_URL}/images/${brand.urlImage}`}
                 alt="logo-brand"
                 className="object-contain"
                 width={160}
