@@ -46,7 +46,7 @@ const HomePage = () => {
     <div className="homepage" style={headerStyle}>
       <Hero />
       <Resume />
-      <Expertise />
+      {/* <Expertise /> */}
       <Client />
     </div>
   );
